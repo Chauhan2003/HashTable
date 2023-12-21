@@ -1,0 +1,57 @@
+import java.util.*;
+
+class Main {
+    public static void unionLinkedList(LinkedList<Integer> l1, LinkedList<Integer> l2, LinkedList<Integer> union) {
+        HashSet<Integer> h1 = new HashSet<>();
+        for (int i = 0; i < l1.size(); i++) {
+            h1.add(l1.get(i));
+        }
+
+        for (int j = 0; j < l2.size(); j++) {
+            if (h1.contains(l2.get(j))) {
+                union.add(l2.get(j));
+            }
+        }
+    }
+    
+    public static void intersectionLinkedList(LinkedList<Integer> l1, LinkedList<Integer> l2, LinkedList<Integer> intersection) {
+        HashSet<Integer> h2 = new HashSet<>();
+        for (int i = 0; i < l1.size(); i++) {
+            h2.add(l1.get(i));
+        }
+
+        for (int j = 0; j < l2.size(); j++) {
+            h2.add(l2.get(j));
+        }
+        
+        for(int num : h2){
+            intersection.add(num);
+        }
+    }
+
+    public static void main(String[] args) {
+        LinkedList<Integer> l1 = new LinkedList<>();
+        LinkedList<Integer> l2 = new LinkedList<>();
+        LinkedList<Integer> union = new LinkedList<>();
+        LinkedList<Integer> intersection = new LinkedList<>();
+        // LinkedList l1 elements :)
+        l1.add(10);
+        l1.add(15);
+        l1.add(4);
+        l1.add(20);
+        // LinkedList l2 elements :)
+        l2.add(8);
+        l2.add(4);
+        l2.add(2);
+        l2.add(10);
+        unionLinkedList(l1, l2, union);
+        for (int k = 0; k < union.size(); k++) {
+            System.out.print(union.get(k) + " ");
+        }
+        System.out.println();
+        intersectionLinkedList(l1, l2, intersection);
+        for (int m = 0; m < intersection.size(); m++) {
+            System.out.print(intersection.get(m) + " ");
+        }
+    }
+}
