@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Main{
+    public static boolean checkSubset(int[] arr1, int[] arr2){
+        // is my arr2 is a subset of arr1 :)
+        if(arr1.length == 0 && arr2.length == 0){
+            return true;
+        }
+        HashSet<Integer> hashSet = new HashSet<>();
+        for(int num : arr1){
+            hashSet.add(num);
+        }
+        
+        for(int num : arr2){
+            if(!hashSet.contains(num)){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    public static void main(String[] args){
+        int[] arr1 = {11, 1, 13, 21, 3, 7};
+        int[] arr2 = {11, 3, 7, 1};
+        
+        if(checkSubset(arr1, arr2)){
+            System.out.print("True");
+        }
+        else{
+            System.out.print("False");
+        }
+    }
+}
