@@ -1,0 +1,30 @@
+import java.util.*;
+
+class Main{
+    public static boolean toCheckPair(int[] arr, int ele){
+        HashSet<Integer> hashSet = new HashSet<>();
+        for(int num : arr){
+            int toGet = ele - num;
+            
+            if(hashSet.contains(toGet)){
+                return true;
+            }
+            else{
+                hashSet.add(num);
+            }
+        }
+        
+        return false;
+    }
+    public static void main(String[] args){
+        int[] arr = {0, -1, 2, -3, 1};
+        int ele = -2;
+        
+        if(toCheckPair(arr, ele)){
+            System.out.print("True");
+        }
+        else{
+            System.out.print("False");
+        }
+    }
+}
